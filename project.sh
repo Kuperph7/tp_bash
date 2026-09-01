@@ -78,14 +78,10 @@ do
     esac
 done
 
-echo "Parametro recibido: <$1>"
-
 if [ "$1" = "-d" ]; then
-    echo "entre en el flag d"
     cd EPNro1
     pkill -f consolidar.sh
     mv consolidar.sh .. 
-    ## Sacr archivos
     cd ..
     rm -r EPNro1
 fi
