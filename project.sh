@@ -23,6 +23,7 @@ do
                 mkdir salida
                 mkdir procesado
                 cd ..
+                touch ${FILENAME}.txt
                 mv consolidar.sh EPNro1
                 mv ${FILENAME}.txt EPNro1/salida
                 echo "Entorno creado correctamente."
@@ -77,11 +78,14 @@ do
     esac
 done
 
-if [ $1="-d" ]; then
+echo "Parametro recibido: <$1>"
+
+if [ "$1" = "-d" ]; then
+    echo "entre en el flag d"
     cd EPNro1
-    kill consolidar.sh
-    mv consolidar.sh ..
+    pkill -f consolidar.sh
+    mv consolidar.sh .. 
     ## Sacr archivos
     cd ..
-    rm EPNro1
+    rm -r EPNro1
 fi
